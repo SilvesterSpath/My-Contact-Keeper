@@ -4,7 +4,7 @@ import {
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_CONTACT,
-  FILTER_CONTACT,
+  FILTER_CONTACTS,
   CLEAR_FILTER,
 } from '../types';
 
@@ -27,6 +27,14 @@ const contactReducer = (state, action) => {
         ...state,
         contacts: state.contacts.filter((i) => i.id !== action.payload),
       };
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((i) => {
+          const regex = new RegExp(`${action.payload}`, 'gi');
+          return i.name.match(regex) || i.email.match(regex);
+        }),
+      };
     case SET_CURRENT:
       return {
         ...state,
@@ -36,6 +44,11 @@ const contactReducer = (state, action) => {
       return {
         ...state,
         current: null,
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
       };
 
     default:
