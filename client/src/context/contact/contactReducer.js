@@ -22,7 +22,7 @@ const contactReducer = (state, action) => {
     case ADD_CONTACT:
       return {
         ...state,
-        contacts: [...state.contacts, action.payload],
+        contacts: [action.payload, ...state.contacts],
         loading: false,
       };
     case CONTACT_ERROR:
@@ -34,14 +34,14 @@ const contactReducer = (state, action) => {
       return {
         ...state,
         contacts: state.contacts.map((i) =>
-          i.id === action.payload.id ? action.payload : i
+          i._id === action.payload._id ? action.payload : i
         ),
         loading: false,
       };
     case DELETE_CONTACT:
       return {
         ...state,
-        contacts: state.contacts.filter((i) => i.id !== action.payload),
+        contacts: state.contacts.filter((i) => i._id !== action.payload),
         loading: false,
       };
     case CLEAR_CONTACTS:
