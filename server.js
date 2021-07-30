@@ -8,7 +8,7 @@ const app = express();
 // Connect Database
 connectDB();
 
-// Init Middleware
+// Init Middleware for using the 'body' object
 app.use(express.json({ extended: false }));
 
 app.use(morgan('dev'));

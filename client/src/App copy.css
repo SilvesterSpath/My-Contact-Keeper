@@ -2,11 +2,10 @@
 
 /* Global Styles */
 :root {
-  --body-color: #5e5e5e;
-  --primary-color: #e97426;
+  --primary-color: #521c07;
   --dark-color: #333333;
-  --light-color: #fef9fe;
-  --danger-color: #ff5a09;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
   --success-color: #28a745;
 }
 
@@ -20,7 +19,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: var(--body-color);
+  background-color: rgb(165, 142, 126);
   color: #333;
 }
 
